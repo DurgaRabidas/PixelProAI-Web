@@ -1,1 +1,16 @@
+body{
+    background:#121212;
+    color:white;
+    font-family:Arial,sans-serif;
+    text-align:center;
+    margin:0;
+    padding:40px;
+}
 
+h1{
+    color:#00d4ff;
+}
+
+input{
+    margin-top:20px;
+}
