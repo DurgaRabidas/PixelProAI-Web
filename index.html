@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PixelPro AI</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PixelPro AI</title>
+
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>PixelPro AI</h1>
-<p>Professional Image Editor</p>
+<header class="topbar">
+    <h2>🎨 PixelPro AI</h2>
 
-<input type="file" id="upload" accept="image/*">
+    <input type="file" id="upload" accept="image/*">
+</header>
 
-<br><br>
+<div class="container">
 
-<img id="image" width="300">
+    <aside class="left-panel">
+
+        <h3>Tools</h3>
+
+        <button>Crop</button>
+        <button>Rotate</button>
+        <button>Flip</button>
+        <button>Brightness</button>
+        <button>Contrast</button>
+        <button>Filters</button>
+
+    </aside>
+
+    <main class="editor">
+
+        <img id="image">
+
+    </main>
+
+    <aside class="right-panel">
+
+        <h3>Properties</h3>
+
+        <p>Select a tool.</p>
+
+    </aside>
+
+</div>
 
 <script src="script.js"></script>
 
