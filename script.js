@@ -1,16 +1,32 @@
 const upload = document.getElementById("upload");
 const image = document.getElementById("image");
 
-upload.addEventListener("change",function(e){
+let rotation = 0;
+let flipX = 1;
 
-const file=e.target.files[0];
+upload.addEventListener("change", function (e) {
+    const file = e.target.files[0];
 
-if(file){
+    if (file) {
+        image.src = URL.createObjectURL(file);
+        image.style.display = "block";
+    }
+});
 
-image.src=URL.createObjectURL(file);
+document.querySelectorAll(".left-panel button").forEach(button => {
+    button.addEventListener("click", () => {
 
-image.style.display="block";
+        if (button.textContent === "Rotate") {
+            rotation += 90;
+            image.style.transform =
+                `rotate(${rotation}deg) scaleX(${flipX})`;
+        }
 
-}
+        if (button.textContent === "Flip") {
+            flipX *= -1;
+            image.style.transform =
+                `rotate(${rotation}deg) scaleX(${flipX})`;
+        }
 
+    });
 });
