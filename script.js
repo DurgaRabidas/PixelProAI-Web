@@ -1,48 +1,45 @@
 const upload = document.getElementById("upload");
-const image = document.getElementById("image");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
-const brightness = document.getElementById("brightness");
-const contrast = document.getElementById("contrast");
+let img = new Image();
 
+let brightness = 100;
+let contrast = 100;
 let rotation = 0;
-let flipX = 1;
-let brightnessValue = 100;
-let contrastValue = 100;
-
-function updateImage() {
-    image.style.transform = `rotate(${rotation}deg) scaleX(${flipX})`;
-    image.style.filter = `brightness(${brightnessValue}%) contrast(${contrastValue}%)`;
-}
+let flipH = 1;
+let flipV = 1;
 
 upload.addEventListener("change", function(e) {
     const file = e.target.files[0];
-    if (file) {
-        image.src = URL.createObjectURL(file);
-        image.style.display = "block";
-        updateImage();
-    }
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+        img.onload = function() {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            drawImage();
+        };
+        img.src = event.target.result;
+    };
+
+    reader.readAsDataURL(file);
 });
 
-document.querySelectorAll(".left-panel button").forEach(button => {
-    button.addEventListener("click", () => {
-        if (button.textContent === "Rotate") {
-            rotation += 90;
-        }
+function drawImage() {
+    ctx.save();
 
-        if (button.textContent === "Flip") {
-            flipX *= -1;
-        }
+    ctx.clearRect(0,0,canvas.width,canvas.height);
 
-        updateImage();
-    });
-});
+    ctx.filter = `brightness(${brightness}%) contrast(${contrast}%)`;
 
-brightness.addEventListener("input", () => {
-    brightnessValue = brightness.value;
-    updateImage();
-});
+    ctx.translate(canvas.width/2, canvas.height/2);
+    ctx.rotate(rotation*Math.PI/180);
+    ctx.scale(flipH, flipV);
 
-contrast.addEventListener("input", () => {
-    contrastValue = contrast.value;
-    updateImage();
-});
+    ctx.drawImage(img,-img.width/2,-img.height/2);
+
+    ctx.restore();
+}
