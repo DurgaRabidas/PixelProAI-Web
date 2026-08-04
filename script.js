@@ -9,6 +9,7 @@ let contrast = 100;
 let rotation = 0;
 let flipH = 1;
 let flipV = 1;
+let filterMode = "none";
 
 upload.addEventListener("change", function(e) {
     const file = e.target.files[0];
@@ -33,7 +34,7 @@ function drawImage() {
 
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
-    ctx.filter = `brightness(${brightness}%) contrast(${contrast}%)`;
+    ctx.filter = `brightness(${brightness}%) contrast(${contrast}%) ${filterMode}`;
 
     ctx.translate(canvas.width/2, canvas.height/2);
     ctx.rotate(rotation*Math.PI/180);
@@ -67,4 +68,10 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
     link.download = "edited-image.png";
     link.href = canvas.toDataURL("image/png");
     link.click();
+});
+let filterMode = "none";
+
+document.getElementById("filterBtn").addEventListener("click", function () {
+    filterMode = (filterMode === "none") ? "grayscale(100%)" : "none";
+    drawImage();
 });
