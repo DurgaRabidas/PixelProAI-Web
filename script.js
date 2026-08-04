@@ -43,3 +43,28 @@ function drawImage() {
 
     ctx.restore();
 }
+document.getElementById("brightness").addEventListener("input", function () {
+    brightness = this.value;
+    drawImage();
+});
+
+document.getElementById("contrast").addEventListener("input", function () {
+    contrast = this.value;
+    drawImage();
+});
+
+document.getElementById("rotateBtn").addEventListener("click", function () {
+    rotation += 90;
+    drawImage();
+});
+
+document.getElementById("flipBtn").addEventListener("click", function () {
+    flipH *= -1;
+    drawImage();
+});
+document.getElementById("downloadBtn").addEventListener("click", function () {
+    const link = document.createElement("a");
+    link.download = "edited-image.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+});
