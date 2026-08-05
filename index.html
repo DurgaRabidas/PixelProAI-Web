@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PixelPro AI</title>
-
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPro AI v2</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header class="topbar">
-    <h2>🎨 PixelPro AI</h2>
+    <div class="logo">
+        <h2>🎨 PixelPro AI</h2>
+    </div>
 
-    <input type="file" id="upload" accept="image/*">
+    <div class="top-buttons">
+        <input type="file" id="upload" accept="image/*">
+        <button id="downloadBtn">Download</button>
+    </div>
 </header>
 
 <div class="container">
@@ -22,13 +25,11 @@
 
         <h3>Tools</h3>
 
-        <button id="cropBtn">Crop</button>
-<button id="rotateBtn">Rotate</button>
-<button id="flipBtn">Flip</button>
-<button id="brightnessBtn">Brightness</button>
-<button id="contrastBtn">Contrast</button>
-<button id="filterBtn">Filters</button>
-<button id="downloadBtn">Download</button>
+        <button id="cropBtn">✂ Crop</button>
+        <button id="rotateBtn">🔄 Rotate</button>
+        <button id="flipBtn">↔ Flip</button>
+        <button id="zoomInBtn">➕ Zoom In</button>
+        <button id="zoomOutBtn">➖ Zoom Out</button>
 
     </aside>
 
@@ -40,15 +41,19 @@
 
     <aside class="right-panel">
 
-        <h3>Properties</h3>
+        <h3>Adjustments</h3>
 
-<label>Brightness</label>
-<input type="range" id="brightness" min="0" max="200" value="100">
+        <label>Brightness</label>
+        <input type="range" id="brightness" min="0" max="200" value="100">
 
-<br><br>
+        <br><br>
 
-<label>Contrast</label>
-<input type="range" id="contrast" min="0" max="200" value="100">
+        <label>Contrast</label>
+        <input type="range" id="contrast" min="0" max="200" value="100">
+
+        <br><br>
+
+        <button id="filterBtn">🎨 Toggle Grayscale</button>
 
     </aside>
 
