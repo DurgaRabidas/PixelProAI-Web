@@ -69,7 +69,6 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
     link.href = canvas.toDataURL("image/png");
     link.click();
 });
-let filterMode = "none";
 
 document.getElementById("filterBtn").addEventListener("click", function () {
     filterMode = (filterMode === "none") ? "grayscale(100%)" : "none";
