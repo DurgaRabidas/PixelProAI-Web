@@ -108,3 +108,62 @@ body{
     border-radius:8px;
     cursor:pointer;
 }
+/* Mobile Responsive */
+@media (max-width: 768px){
+
+    body{
+        overflow:auto;
+    }
+
+    .container{
+        flex-direction:column;
+        height:auto;
+    }
+
+    .left-panel,
+    .right-panel{
+        width:100%;
+        border:none;
+        padding:15px;
+    }
+
+    .left-panel{
+        display:flex;
+        gap:10px;
+        overflow-x:auto;
+        overflow-y:hidden;
+    }
+
+    .left-panel h3{
+        display:none;
+    }
+
+    .left-panel button{
+        min-width:120px;
+        margin-bottom:0;
+    }
+
+    .editor{
+        min-height:55vh;
+        padding:10px;
+    }
+
+    #canvas{
+        width:100%;
+        height:auto;
+        max-width:100%;
+    }
+
+    .topbar{
+        flex-direction:column;
+        height:auto;
+        gap:10px;
+        padding:10px;
+    }
+
+    .top-buttons{
+        width:100%;
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+}
