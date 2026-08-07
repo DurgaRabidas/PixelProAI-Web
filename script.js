@@ -64,8 +64,8 @@ upload.addEventListener("change", function (e) {
 
         img.onload = function () {
 
-            canvas.width = canvas.parentElement.clientWidth - 40;
-            canvas.height = canvas.parentElement.clientHeight - 40;
+            canvas.width = Math.min(window.innerWidth * 0.7, 900);
+canvas.height = Math.min(window.innerHeight * 0.6, 600);
 
             drawImage();
 
